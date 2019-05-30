@@ -1,0 +1,6 @@
+package: countryes
+import:
+- package: github.com/gorilla/mux
+  version: ^1.6.2
+- package: github.com/go-sql-driver/mysql
+  version: ^1.4.1
