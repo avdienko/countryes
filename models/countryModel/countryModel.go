@@ -1,5 +1,6 @@
 package countryModel
 
+/*
 type Model struct {
 	BD string `json:"BD"`
 	BE string `json:"BE"`
@@ -251,4 +252,4 @@ type Model struct {
 	UA string `json:"UA"`
 	QA string `json:"QA"`
 	MZ string `json:"MZ"`
-}
+} */
