@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"log"
+	"countryes/common/log"
 	"net/http"
 )
 
@@ -16,9 +16,18 @@ func (md *middleware) PanicWrap(handler http.HandlerFunc) http.HandlerFunc {
 
 		defer func() {
 			if parnic := recover(); parnic != nil {
-				log.Println("PANIC: " + parnic.(string))
+				log.Info("PANIC: " + parnic.(string))
 			}
 		}()
+
+		handler(w, r)
+	}
+}
+
+func (md *middleware) Log(handler http.HandlerFunc) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		log.Info("Call api:" + r.RequestURI)
 
 		handler(w, r)
 	}

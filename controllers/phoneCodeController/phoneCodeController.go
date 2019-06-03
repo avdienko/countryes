@@ -23,8 +23,6 @@ func PhoneCodeController(w http.ResponseWriter, r *http.Request) {
 	inputParams := mux.Vars(r)
 	countryName := inputParams["name"] // TODO add validate input param
 
-	log.Info(r.URL.Path)
-
 	services, err := phoneCodesServices.New()
 	if err != nil {
 		httpResponse.Error(w, INTERNAL_ERROR+err.Error())

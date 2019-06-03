@@ -9,7 +9,7 @@ import (
 // Simple logger :))
 
 // todo move the parameter to the config file
-const logFileName = "../../logFile.txt"
+const logFileName = "./logFile.txt"
 
 func Info(msg string) {
 	writeToFile("[INFO]: " + msg)
@@ -21,6 +21,7 @@ func Error(msg string) {
 
 func writeToFile(msg string) error {
 	var mutex sync.Mutex
+
 	mutex.Lock()
 	defer mutex.Unlock()
 

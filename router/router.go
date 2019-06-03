@@ -12,8 +12,8 @@ func Startup() (*mux.Router, error) {
 	router := mux.NewRouter()
 	md := middleware.New()
 
-	router.HandleFunc("/reload", md.PanicWrap(reloadController.ReloadController)).Methods("POST")
-	router.HandleFunc("/code/{name}", md.PanicWrap(phoneCodeController.PhoneCodeController)).Methods("GET")
+	router.HandleFunc("/reload", md.PanicWrap(md.Log(reloadController.ReloadController))).Methods("POST")
+	router.HandleFunc("/code/{name}", md.PanicWrap(md.Log(phoneCodeController.PhoneCodeController))).Methods("GET")
 
 	return router, nil
 }
